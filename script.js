@@ -86,6 +86,18 @@ createApp({
             }
         };
 
+        const openSocial = (platform) => {
+            const urls = {
+                whatsapp: 'https://wa.me/254712629497?text=Hello%20I%20would%20like%20to%20request%20a%20quote',
+                linkedin: 'https://www.linkedin.com/in/clinton-m-n/',
+                twitter: 'https://twitter.com/M_Ndegwa'
+            };
+            const url = urls[platform];
+            if (url) {
+                window.open(url, '_blank');
+            }
+        };
+
         // --- Social & Download Button Persistence Logic ---
         const showSocialBtn = ref('');
         const showDownloadBtn = ref('');
@@ -251,6 +263,7 @@ createApp({
             quoteError,
             requestQuote,
             submitQuoteRequest,
+            openSocial,
             // Social & Download Button Persistence
             showSocialBtn, showDownloadBtn,
             onSocialEnter, onSocialLeave, onSocialBtnEnter, onSocialBtnLeave,
@@ -346,41 +359,6 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll, { passive: true });
     revealOnScroll(); // Initial check on load
 
-    // --- Download Form Submission ---
-    function handleDownloadSubmit(e) {
-        e.preventDefault();
-        const email = document.getElementById('downloadEmail').value;
-        const errorDiv = document.getElementById('downloadError');
-        errorDiv.style.display = 'none';
-        if (!email) {
-            errorDiv.textContent = 'Please enter your email.';
-            errorDiv.style.display = 'block';
-            return;
-        }
-        const formData = new FormData();
-        formData.append('email', email);
-        fetch('https://formspree.io/f/movwwqne', {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        }).then(response => {
-            if (response.ok) {
-                window.location.href = '/assets/docs/Case_Study/Case-Study.docx'; // Secure as needed
-            } else {
-                errorDiv.textContent = 'Submission failed. Please try again.';
-                errorDiv.style.display = 'block';
-            }
-        }).catch(() => {
-            errorDiv.textContent = 'Submission failed. Please try again.';
-            errorDiv.style.display = 'block';
-        });
-    }
-
-    const downloadForm = document.getElementById('downloadForm');
-    if (downloadForm) {
-        downloadForm.addEventListener('submit', handleDownloadSubmit);
-    }
-    
     window.addEventListener('scroll', function() {
     const btn = document.getElementById('backToTop');
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;

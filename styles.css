@@ -7,14 +7,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Savate:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root  {
-    --text-color: #eeba0b;
-    --extra-color: #198754;
-    --paragraph-color: #f0f0f0;
-    --background-color: #062726;
+    --foreground-color: #92ACFF;
+    --extra-color: #92ACFF;
+    --background-color: #0E0929;
+    --text-color: rgba(146,172,255,0.95);
+    --paragraph-color: rgba(146,172,255,0.85);
+    --muted-color: rgba(146,172,255,0.55);
+    --surface-color: rgba(14,9,41,0.82);
 }
 
 .bg-app-black {
-    background-color: var(--background-color); 
+    background-color: var(--background-color);
 }
 
 body {
@@ -74,10 +77,10 @@ body {
    - .fas: Targets Font Awesome icons inside nav links.
 */
 .navbar {
-    height: 14vh;    
-    background: rgba(6, 39, 38, 0.7); /* semi-transparent background */
-    backdrop-filter: blur(5px);
-    border-bottom: 1px solid var(--extra-color);
+    height: 14vh;
+    background: rgba(14, 9, 41, 0.85); /* semi-transparent background */
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--foreground-color);
     cursor: pointer;
 }
 
@@ -349,7 +352,7 @@ body {
 }
 
 #services .services-row .card {
-    background: var(--background-color);
+    background: var(--surface-color);
     border: none;
     margin: 2rem;
 }
@@ -420,6 +423,61 @@ body {
     justify-content: center;
     padding: 2rem;
     text-align: center;
+}
+
+.home-hero-copy .eyebrow {
+    letter-spacing: 0.35em;
+    color: var(--foreground-color);
+    opacity: 0.9;
+}
+
+.home-hero-copy h1,
+.home-feature-row h2 {
+    color: var(--foreground-color);
+}
+
+.home-feature-row {
+    padding: 2rem 0;
+}
+
+.home-feature-row .feature-text {
+    text-align: left;
+}
+
+.home-feature-row .feature-text p {
+    color: var(--paragraph-color);
+    line-height: 1.8;
+}
+
+.home-feature-row .feature-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 1.25rem;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+}
+
+.home-feature-row.feature-image .feature-text {
+    margin-top: 1rem;
+}
+
+.feature-grid img {
+    width: 100%;
+    display: block;
+    border-radius: 1rem;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.button-gradient,
+.btn {
+    background-color: var(--foreground-color);
+    color: var(--background-color);
+}
+
+.button-gradient:hover,
+.btn:hover {
+    background-color: rgba(146,172,255,0.85);
+    color: var(--background-color);
 }
 
 /* =========================
