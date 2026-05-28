@@ -14,6 +14,12 @@
     --paragraph-color: rgba(146,172,255,0.85);
     --muted-color: rgba(146,172,255,0.55);
     --surface-color: rgba(14,9,41,0.82);
+    --dark-color: #000000;
+}
+
+.text-black,
+.icon-black {
+    color: var(--dark-color) !important;
 }
 
 .bg-app-black {
@@ -211,7 +217,8 @@ body {
 }
 
 .home-container {
-    padding: 0;
+    padding: 50px 0;
+    margin: 70px 0;
 }
 
 #home h1{
@@ -401,7 +408,7 @@ body {
 }
 
 #services .services-row .card .card-body .btn {
-    color: var(--paragraph-color);
+    color: var(--dark-color);
     text-transform: uppercase;
     font-weight: 600;
     font-family: 'Savate', sans-serif;
@@ -413,7 +420,7 @@ body {
 
 #services .services-row .card .card-body .btn:hover {
     background-color: var(--text-color);
-    color: var(--background-color);
+    color: var(--dark-color);
 }
 
 .section-content {
@@ -471,13 +478,13 @@ body {
 .button-gradient,
 .btn {
     background-color: var(--foreground-color);
-    color: var(--background-color);
+    color: var(--dark-color);
 }
 
 .button-gradient:hover,
 .btn:hover {
     background-color: rgba(146,172,255,0.85);
-    color: var(--background-color);
+    color: var(--dark-color);
 }
 
 /* =========================
@@ -580,7 +587,7 @@ body {
 
 #referrals form .btn {
     width: 490px;
-    color: var(--paragraph-color);
+    color: var(--dark-color);
     text-transform: uppercase;
     font-weight: 600;
     font-family: 'Savate', sans-serif;
@@ -592,7 +599,7 @@ body {
 
 #referrals form .btn:hover {
     background-color: var(--text-color);
-    color: var(--background-color);
+    color: var(--dark-color);
 }
 
 /* =========================
@@ -689,7 +696,7 @@ body {
   width: 100%;
   margin: 0.5rem auto 0 auto;
   background: #198754;
-  color: #fff;
+  color: var(--dark-color);
   border: none;
   border-radius: 0.3rem;
   pointer-events: none;
@@ -707,8 +714,8 @@ body {
 }
 
 .slide-btn:hover {
-    color: var(--text-color);
-    border-bottom: 1.4px solid var(--text-color);
+    color: var(--dark-color);
+    border-bottom: 1.4px solid var(--dark-color);
 }
 
 .position-relative {
@@ -865,4 +872,39 @@ body {
     #contact .document-download-link .social-link span {
         padding-left: 1rem !important;
     }
+}
+
+/* =========================
+     PROJECTS SECTION STYLES
+     =========================
+*/
+.project-card {
+    background: var(--surface-color);
+    border-radius: 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    width: 65vw;
+}
+
+.screenshot-img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.screenshot-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0,0,0,0.65);
+    color: var(--extra-color);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-family: "Savate", sans-serif;
+    z-index: 5;
+    font-size: .85rem;
+    text-transform: uppercase;
 }

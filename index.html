@@ -44,9 +44,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#referrals">
-                            <i class="fas fa-users me-2"></i>
-                           Referrals
+                        <a class="nav-link" href="#projects">
+                            <i class="fas fa-folder-open me-2"></i>
+                           Projects
                         </a>
                     </li>
                 </ul>
@@ -59,16 +59,15 @@
             <section id="home" class="section-content bg-app-black">
                 <div class="container home-container">
                     <div class="row align-items-center gy-5">
-                        <div class="col-lg-6 reveal-on-scroll">
+                        <div class="col-lg-4 reveal-on-scroll">
                             <div class="home-hero-copy">
-                                <p class="eyebrow text-uppercase mb-3">Engineering + Design</p>
-                                <h1 class="display-5 mb-4">I am a Computer Engineer <span class="text-gradient">and</span> Graphic Designer</h1>
+                                <p class="eyebrow text-uppercase mb-3">Engineering + Graphic Designs </p>
                                 <p class="lead">
                                     I build digital experiences with engineering precision and visual identity. From software systems to brand visuals, I merge logic and style in every project.
                                 </p>
                             </div>
                         </div>
-                        <div class="col-lg-6 text-center reveal-on-scroll">
+                        <div class="col-lg-8 text-center reveal-on-scroll">
                             <img src="./assets/images/CMN.png" alt="Brand visual" class="img-fluid rounded-4 home-hero-image shadow-lg">
                         </div>
                     </div>
@@ -169,6 +168,32 @@
                             <div class="col-md-6">
                                 <div class="feature-image">
                                     <img src="./assets/images/Yanken-1.png" alt="Creative technical blend" class="img-fluid rounded-4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section (inserted between Home and Services) -->
+            <section id="projects" class="section-content bg-app-black">
+                <div class="container text-center">
+                    <div>
+                        <h1 class="reveal-on-scroll">
+                            Projects — Web Development
+                        </h1>
+
+                        <div class="row justify-content-center mt-4">
+                            <div class="col-md-6" v-for="p in projects" :key="p.url">
+                                <div class="project-card position-relative reveal-on-scroll mx-auto">
+                                    <span v-if="p.public" class="screenshot-badge">Public</span>
+                                    <a :href="p.url" target="_blank" rel="noopener noreferrer" class="d-block">
+                                        <img :src="p.screenshot" :alt="p.name" class="screenshot-img img-fluid rounded-3 shadow-sm" loading="lazy">
+                                    </a>
+                                    <div class="mt-3 text-start">
+                                        <h5 class="mb-1">{{ p.name }}</h5>
+                                        <p class="mb-0">{{ p.desc }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -424,30 +449,6 @@
                 </div>
             </section>
 
-            <!-- Referrals Section -->
-            <section id="referrals" class="section-content bg-app-black">
-                <div class="container text-start">
-                    <div>
-                        <h1 class="referral-title text-end reveal-on-scroll">
-                            Been Referred? Get Your Discount!
-                        </h1>
-                        <p class="referral-title-2 text-center reveal-on-scroll">
-                            If you've received a unique referral code from one of my satisfied clients or partners,
-                            enter it below to unlock a special discount on your first service!
-                        </p>
-
-                        <form @submit.prevent="validateReferralCode" class="col-md-8 mx-auto reveal-on-scroll">
-                            <div class="mb-4 referral-form">
-                                <label for="referralCode" class="form-label text-white">Your Referral Code</label>
-                                <input type="text" class="form-control" id="referralCode" v-model="referralCodeInput" required>
-                            </div>
-                            <div class="d-grid mb-4">
-                                <button type="submit" class="btn">Apply Code</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
         </main>
 
         <!-- Footer -->

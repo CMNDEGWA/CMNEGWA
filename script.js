@@ -3,19 +3,18 @@ const { createApp, ref, computed } = Vue;
 
 createApp({
     setup() {
-        // Reactive data for the referral form
-        const referralCodeInput = ref('');
-        const referralMessage = ref('');
-        const referralMessageType = ref('');
-        const referralApplied = ref(false);
+        // Reactive data for the referral form (removed — replaced by Projects section)
 
-        // Mock referral codes
-        const mockReferralCodes = [
-            { code: 'MAESTRO10', discount: '10% off your first service!', source: 'Customer A' },
-            { code: 'TECHGURU15', discount: '15% off any service over $1000!', source: 'Employee B' },
-            { code: 'DIGITALDEAL20', discount: '20% off Software Design projects!', source: 'Online Ad' },
-            { code: 'PARTNERFIVE', discount: 'Get a free 1-hour consultation!', source: 'Partner C' }
-        ];
+        // Projects data (for Projects section)
+        const projects = ref([
+            {
+                name: 'Example Site',
+                url: 'https://cmndegwa.github.io/P-TWS/',
+                screenshot: './assets/images/TWS.png',
+                public: true,
+                desc: 'Live demo — click image to open.'
+            }
+        ]);
 
         const currentYear = computed(() => new Date().getFullYear());
 
@@ -27,21 +26,7 @@ createApp({
         const quoteSuccess = ref('');
         const quoteError = ref('');
 
-        // --- Referral Code Validation ---
-        const validateReferralCode = () => {
-            const code = referralCodeInput.value.trim().toUpperCase();
-            const foundCode = mockReferralCodes.find(mock => mock.code === code);
-
-            if (foundCode) {
-                referralMessage.value = `Success! You get ${foundCode.discount}`;
-                referralMessageType.value = 'success';
-                referralApplied.value = true;
-            } else {
-                referralMessage.value = 'Invalid referral code. Please check your code and try again.';
-                referralMessageType.value = 'danger';
-                referralApplied.value = false;
-            }
-        };
+        // Referral logic removed; projects are displayed in the Projects section
 
         // --- Core App Methods ---
         const requestQuote = (serviceName) => {
@@ -248,12 +233,8 @@ createApp({
 
         return {
             currentYear,
-            // Referral form data and methods
-            referralCodeInput,
-            referralMessage,
-            referralMessageType,
-            referralApplied,
-            validateReferralCode,
+            // Projects data
+            projects,
             // Modal state and methods
             selectedService,
             quoteName,
@@ -294,7 +275,7 @@ createApp({
 // --- ScrollSpy Implementation ---
 window.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    const sections = ['home', 'services', 'contact', 'referrals'].map(id => document.getElementById(id));
+    const sections = ['home', 'services', 'contact', 'projects'].map(id => document.getElementById(id));
 
     function onScrollSpy() {
         let currentSection = null;
