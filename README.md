@@ -1,6 +1,6 @@
 ## Hi there 👋
 
-Check Out --> (https://cmndegwa.github.io/CMNEGWA/))
+Check Out --> (https://cmndegwa.github.io/CMNDEGWA/))
 
 <!--
 **Muthung/Muthung** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
